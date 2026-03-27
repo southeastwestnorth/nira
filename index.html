@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nira 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Confetti Library for the YES screen -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Background Audio -->
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_017b3eb2b8.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Falling Elements Container -->
+    <div id="falling-elements"></div>
+
+    <!-- STAGE 0: LANDING -->
+    <div id="stage-0" class="stage active">
+        <p class="romantic-title">Hi Nira 💕</p>
+        <div class="center-text">
+            <img src="https://media.tenor.com/Jz1O_mO546cAAAAi/cat-cute.gif" width="180" alt="Cute Cat">
+        </div>
+        <div id="intro-texts">
+            <p class="fade-in-text hidden">I created this website just for you...</p>
+            <p class="fade-in-text hidden">Because you are incredibly special to me...</p>
+            <p class="fade-in-text hidden">And today, I want to tell you something...</p>
+        </div>
+        <div class="center-text" style="margin-top: 30px;">
+            <button class="primary-btn hidden" id="btn-continue-1" onclick="goToStage(1)">👉 Tap to Continue</button>
+        </div>
+        <p class="imran-signature hidden" id="sig">Imran</p>
+    </div>
+
+    <!-- STAGE 1: MEMORIES -->
+    <div id="stage-1" class="stage hidden">
+        <p class="romantic-title">Just thinking about us...</p>
+        
+        <div id="memory-cards">
+            <div class="memory-card hidden">
+                <img src="https://media.tenor.com/nJmPZt5oVpwAAAAi/peach-cat-cute.gif">
+                <p>We haven't known each other for years but....</p>
+            </div>
+            <div class="memory-card hidden">
+                <img src="https://media.tenor.com/b97j0h3X-ZMAAAAi/mochi-cat.gif">
+                <p>Talking to you is the best part of my day.</p>
+            </div>
+            <div class="memory-card hidden">
+                <img src="https://media.tenor.com/YvVnN11HhEAAAAAi/cat-love.gif">
+                <p>You turned my normal days into magic.</p>
+            </div>
+            <div class="memory-card hidden">
+                <img src="https://media.tenor.com/T0bO27w5qgMAAAAi/cat-heart.gif">
+                <p>I don't know exactly when, but I fell for you. I still haven't recovered from the fall.</p>
+            </div>
+        </div>
+
+        <div class="center-text" style="margin-top: 30px;">
+            <button class="primary-btn hidden" id="btn-continue-2" onclick="goToStage(2)">👉 I have one last question...</button>
+        </div>
+    </div>
+
+    <!-- STAGE 2: PROPOSAL -->
+    <div id="stage-2" class="stage hidden">
+        <div class="center-text">
+            <img src="https://media.tenor.com/W2kPeeR-sKkAAAAi/cat-rose.gif" width="220">
+        </div>
+        
+        <div id="proposal-texts">
+            <p class="fade-in-text hidden">Nira...</p>
+            <p class="fade-in-text hidden">I really, really like you.</p>
+            <p class="romantic-title hidden" style="margin-top:20px;">Will you be my girlfriend?</p>
+        </div>
+
+        <div class="button-container hidden" id="response-buttons">
+            <button class="primary-btn" onclick="goToStage(3)">YES 💖</button>
+            <button class="secondary-btn" id="no-btn" onclick="alert('Error 404: \'No\' is not an option! 😾 Try the YES button!')">NO 🙈</button>
+        </div>
+    </div>
+
+    <!-- STAGE 3: ACCEPTED -->
+    <div id="stage-3" class="stage hidden">
+        <p class="romantic-title" style="font-size: 3.5rem;">YAYYYY ❤️</p>
+        <div class="center-text">
+            <img src="https://media.tenor.com/y1uH3o8c94gAAAAi/cat-cats.gif" width="280" style="border-radius:20px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">
+        </div>
+        
+        <div class="final-message">
+            <h2>You just made me the happiest guy alive!</h2>
+            <h3>
+                I promise to take care of you,<br>
+                annoy you forever,<br>
+                and send you bicep pics daily 🐱💕<br><br>
+                - Yours, Imran
+            </h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
