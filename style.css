@@ -1,4 +1,5 @@
-/* Modern Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,197 +9,131 @@
 
 body, html {
     font-family: 'Poppins', sans-serif;
-    /* 100dvh accounts for mobile browser address bars */
-    height: 100dvh; 
-    width: 100vw;
-    overflow: hidden; /* Prevents bouncing/scrolling */
-    background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+    /* Softened the colors so it's not "Red" - Now a soft Peach/Lavender */
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1f9 100%);
+    background-attachment: fixed;
+    /* Allow scrolling so Nira can see everything on small screens */
+    overflow-x: hidden;
+    overflow-y: auto; 
     color: #4a4a4a;
-}
-
-/* App Container - Centers everything beautifully */
-.app-container {
-    position: relative;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
 }
 
-/* Smooth Cross-Fading Stages */
+/* Hide scrollbar but keep functionality */
+body::-webkit-scrollbar { display: none; }
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 50px; /* Space for buttons */
+}
+
 .stage {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s ease, visibility 0.8s;
-    z-index: 10;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    gap: 25px;
+    min-height: 100vh;
 }
 
 .stage.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 20;
-}
-
-.content-wrapper {
-    width: 100%;
-    max-width: 400px; /* Perfect for mobile */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Modern Typography */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .romantic-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #ff4b4b, #ff7eb3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
+    color: #d85c7f;
     line-height: 1.2;
+    margin-bottom: 10px;
 }
 
-.romantic-title.giant { font-size: 3.5rem; }
-.section-title { font-size: 1.5rem; font-weight: 600; color: #555; }
+.main-gif {
+    width: 200px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
 
-/* Elegant Text Fades */
-.smooth-text {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #444;
-    text-align: center;
+.reveal-text {
     opacity: 0;
-    transform: translateY(15px);
-    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1); /* Apple-like smooth slide */
-    margin: 10px 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #5a5a5a;
 }
 
-.smooth-text.visible, .hidden.visible {
+.reveal-text.show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Utility Hidden Class */
-.hidden {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
-    pointer-events: none;
-}
-.hidden.visible { pointer-events: auto; }
-
-/* Image Containers */
-.gif-container img {
-    height: 160px;
-    border-radius: 20px;
-    object-fit: cover;
-}
-.gif-container.large img { height: 200px; }
-.shadow-frame img { box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
-
-/* Glassmorphism Cards */
-.cards-container { width: 100%; display: flex; flex-direction: column; gap: 15px; }
-
+/* Modern Glass Cards */
 .glass-card {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 15px;
     display: flex;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 8px 32px rgba(255, 117, 140, 0.1);
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
 
-.glass-card img { width: 70px; height: 70px; border-radius: 16px; object-fit: cover; }
-.glass-card p { font-size: 1rem; font-weight: 500; margin: 0; line-height: 1.4; color: #333;}
+.glass-card img { width: 65px; height: 65px; border-radius: 12px; }
+.glass-card p { font-size: 0.95rem; text-align: left; font-weight: 600; color: #444; }
 
-/* Modern Buttons */
+/* Buttons */
 .primary-btn {
-    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-    color: white;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #fff;
     border: none;
-    border-radius: 50px; /* Pill shape */
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-weight: 700;
     font-size: 1.1rem;
-    font-weight: 600;
-    padding: 16px 32px;
-    box-shadow: 0 10px 25px rgba(255, 117, 140, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 154, 158, 0.4);
     cursor: pointer;
-    font-family: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
-    max-width: 300px;
+    width: 280px;
+    margin-top: 20px;
 }
 
-.primary-btn:active { transform: scale(0.95); }
-
-/* Buttons Container */
-.action-buttons {
-    display: flex;
-    gap: 15px;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-    margin-top: 10px;
-}
-
-.yes-btn { width: 140px; }
+.btn-group { display: flex; flex-direction: row; gap: 15px; width: 100%; justify-content: center; }
 
 .secondary-btn {
-    background: #fff;
-    color: #ff4b4b;
-    border: 2px solid #ff4b4b;
+    background: white;
+    color: #ff9a9e;
+    border: 2px solid #ff9a9e;
+    padding: 15px 25px;
     border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 14px 30px;
+    font-weight: 700;
     cursor: pointer;
-    width: 140px;
-    /* This makes the NO button dart away smoothly */
-    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    position: relative;
-    z-index: 100;
+    transition: transform 0.2s;
 }
 
-/* Final Message Glass Panel */
 .glass-panel {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.8);
     padding: 30px 20px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(255, 117, 140, 0.2);
-    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.glass-panel h2 { color: #ff4b4b; font-size: 1.6rem; margin-bottom: 15px; }
-.glass-panel p { font-size: 1.1rem; line-height: 1.6; color: #444; font-weight: 500; }
-.sign-off { display: block; margin-top: 15px; font-weight: 700; color: #ff758c; }
-.signature { font-size: 0.9rem; color: #888; letter-spacing: 1px; }
-
-/* Falling Elements */
-#falling-elements {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-}
-.fall-item { position: absolute; top: -10%; animation: fall linear infinite; }
-@keyframes fall {
-    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-}
+#falling-elements { position: fixed; inset: 0; pointer-events: none; z-index: -1; }
+.fall-item { position: absolute; top: -50px; animation: fall linear infinite; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
