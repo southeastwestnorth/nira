@@ -1,103 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>For Nira 💕</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style_fixed.css" />
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nira 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <audio id="bg-music" loop preload="none">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_017b3eb2b8.mp3?filename=spring-love-112160.mp3" type="audio/mpeg">
-  </audio>
+    <audio id="bg-music" loop><source src="https://cdn.pixabay.com/download/audio/2022/05/16/audio_017b3eb2b8.mp3" type="audio/mpeg"></audio>
+    <div id="falling-elements"></div>
 
-  <div id="falling-elements" aria-hidden="true"></div>
+    <main class="app-container">
+        <!-- STAGE 0: LANDING -->
+        <section id="stage-0" class="stage active">
+            <div class="content-wrapper">
+                <h1 class="romantic-title">Hi Nira 💕</h1>
+                <div class="gif-container">
+                    <img src="https://media.tenor.com/Jz1O_mO546cAAAAi/cat-cute.gif" alt="Cute Cat">
+                </div>
+                <div class="text-sequence">
+                    <p class="reveal-text">I created this just for you...</p>
+                    <p class="reveal-text">Because you are incredibly special to me...</p>
+                    <p class="reveal-text">And today, I want to tell you something...</p>
+                </div>
+                <button class="primary-btn hidden" id="btn-0" onclick="startApp()">Tap to Continue ✨</button>
+                <p class="signature hidden" id="sig-0">Imran</p>
+            </div>
+        </section>
 
-  <main class="app-container">
-    <section id="stage-0" class="stage active">
-      <div class="content-wrapper">
-        <h1 class="romantic-title reveal-text show">Hi Nira 💕</h1>
-        <div class="gif-container reveal-text show">
-          <img class="main-gif" src="https://media.tenor.com/Jz1O_mO546cAAAAi/cat-cute.gif" alt="Cute cat waving">
-        </div>
-        <div class="text-sequence">
-          <p class="reveal-text">I made this just for you...</p>
-          <p class="reveal-text">Because you are really special to me...</p>
-          <p class="reveal-text">And today, I want to tell you something...</p>
-        </div>
-        <button class="primary-btn hidden" id="btn-0" type="button">Tap to Continue ✨</button>
-      </div>
-    </section>
+        <!-- STAGE 1: MEMORIES -->
+        <section id="stage-1" class="stage">
+            <div class="content-wrapper">
+                <h2 class="section-title">Just thinking about us...</h2>
+                <div class="cards-stack">
+                    <div class="glass-card reveal-text">
+                        <img src="https://media.tenor.com/nJmPZt5oVpwAAAAi/peach-cat-cute.gif">
+                        <p>We haven't known each other long, but...</p>
+                    </div>
+                    <div class="glass-card reveal-text">
+                        <img src="https://media.tenor.com/b97j0h3X-ZMAAAAi/mochi-cat.gif">
+                        <p>Talking to you is the best part of my day.</p>
+                    </div>
+                    <div class="glass-card reveal-text">
+                        <img src="https://media.tenor.com/YvVnN11HhEAAAAAi/cat-love.gif">
+                        <p>You turned my normal days into magic.</p>
+                    </div>
+                </div>
+                <button class="primary-btn hidden" id="btn-1" onclick="goToStage(2)">One last thing...</button>
+            </div>
+        </section>
 
-    <section id="stage-1" class="stage">
-      <div class="content-wrapper">
-        <h2 class="section-title reveal-text">Just thinking about us...</h2>
+        <!-- STAGE 2: PROPOSAL -->
+        <section id="stage-2" class="stage">
+            <div class="content-wrapper">
+                <div class="gif-container large">
+                    <img src="https://media.tenor.com/W2kPeeR-sKkAAAAi/cat-rose.gif">
+                </div>
+                <div class="text-sequence">
+                    <p class="reveal-text">Nira...</p>
+                    <p class="reveal-text">I really, really like you.</p>
+                    <h2 class="romantic-title reveal-text" style="font-size: 2rem;">Will you be my girlfriend?</h2>
+                </div>
+                <div class="action-buttons hidden" id="btns-2">
+                    <button class="primary-btn yes-btn" onclick="goToStage(3)">YES 💖</button>
+                    <button class="secondary-btn no-btn" id="no-btn">NO 🙈</button>
+                </div>
+            </div>
+        </section>
 
-        <div class="cards-container">
-          <div class="glass-card reveal-text">
-            <img src="https://media.tenor.com/nJmPZt5oVpwAAAAi/peach-cat-cute.gif" alt="Cute cat 1">
-            <p>Talking to you is the best part of my day.</p>
-          </div>
-          <div class="glass-card reveal-text">
-            <img src="https://media.tenor.com/b97j0h3X-ZMAAAAi/mochi-cat.gif" alt="Cute cat 2">
-            <p>You turned my normal days into magic.</p>
-          </div>
-          <div class="glass-card reveal-text">
-            <img src="https://media.tenor.com/YvVnN11HhEAAAAAi/cat-love.gif" alt="Cute cat 3">
-            <p>I don't know exactly when, but I fell for you.</p>
-          </div>
-          <div class="glass-card reveal-text">
-            <img src="https://media.tenor.com/T0bO27w5qgMAAAAi/cat-heart.gif" alt="Cute cat 4">
-            <p>Every little moment with you feels softer, brighter, better.</p>
-          </div>
-        </div>
+        <!-- STAGE 3: ACCEPTED -->
+        <section id="stage-3" class="stage">
+            <div class="content-wrapper">
+                <h1 class="romantic-title giant">YAYYYY ❤️</h1>
+                <div class="gif-container shadow-frame">
+                    <img src="https://media.tenor.com/y1uH3o8c94gAAAAi/cat-cats.gif">
+                </div>
+                <div class="glass-panel">
+                    <h2>The happiest guy alive!</h2>
+                    <p>I promise to take care of you, annoy you forever, and send you bicep pics daily 🐱💕</p>
+                    <span class="sign-off">- Yours, Imran</span>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <button class="primary-btn hidden" id="btn-1" type="button">One last question... 💌</button>
-      </div>
-    </section>
-
-    <section id="stage-2" class="stage">
-      <div class="content-wrapper">
-        <div class="gif-container large reveal-text">
-          <img class="main-gif" src="https://media.tenor.com/W2kPeeR-sKkAAAAi/cat-rose.gif" alt="Cat holding a rose">
-        </div>
-        <div class="text-sequence proposal-sequence">
-          <p class="reveal-text">Nira...</p>
-          <p class="reveal-text">You mean a lot to me.</p>
-          <p class="reveal-text">I really, really like you.</p>
-          <h2 class="romantic-title reveal-text">Will you be my girlfriend? 💖</h2>
-        </div>
-
-        <div class="btn-group hidden" id="btns-2">
-          <button class="primary-btn yes-btn" id="yes-btn" type="button">YES 💖</button>
-          <button class="secondary-btn" id="no-btn" type="button">NO 🙈</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="stage-3" class="stage">
-      <div class="content-wrapper">
-        <h1 class="romantic-title giant reveal-text">YAYYYY ❤️</h1>
-        <div class="gif-container reveal-text shadow-frame">
-          <img class="main-gif" src="https://media.tenor.com/y1uH3o8c94gAAAAi/cat-cats.gif" alt="Happy cats">
-        </div>
-        <div class="glass-panel reveal-text">
-          <h2>You just made me the happiest person alive!</h2>
-          <p>
-            I promise to take care of you,<br>
-            annoy you forever,<br>
-            and send you cute cat memes daily 🐱💕
-          </p>
-          <p class="sign-off">— Yours, Imran</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="script_fixed.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
